@@ -1,4 +1,5 @@
 <template>
+    <!-- TODO:组件物料区 -->
     <section class="decoration-edit">
         <section class="l">
             <ul 
@@ -16,6 +17,7 @@
                 </li>
             </ul>
         </section>
+        <!-- TODO:生成预览区 -->
         <section class="c">
             <!-- header 不可拖拽 --> 
             <div class="top-nav" @click="selectType(0)">
@@ -57,6 +59,7 @@
                 </Draggable>
             </div>
         </section>
+        <!-- TODO:右侧区域配置修改区 -->
         <section class="r">
             <EditForm
                 :data="props"
@@ -200,6 +203,11 @@ export default {
             }
         },
         // 切换视图组件
+        /**
+         * @description: 
+         * @param {*} index
+         * @return {*}
+         */
         selectType(index) {
             this.isRight = false
             this.props = this.view[index]
@@ -224,6 +232,7 @@ export default {
         },
         // 已放置到指定位置
         drog(e) {
+            console.log('e当前drog的e对象内容',e);
             if (!this.type) { // 内容拖拽
                 return
             }
@@ -233,6 +242,8 @@ export default {
         },
         // 移动中
         dragOver(e) {
+            console.log('e当前dragOver的e对象内容',e);
+
             if (!this.type) { // 内容拖拽
                 return
             }
